@@ -1,0 +1,34 @@
+﻿@model RecipeIngredientMapping
+<!-- Partial View for Viewing a Specific Recipe -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="panel panel-success">
+                <div class="panel-heading text-center"><h4>Recipe Details</h4></div>
+                <div class="panel-body">
+                    <form class="recipe-card card">
+                        <div class="card-header" align="center">
+                            <span > @Model.RecipeName</span>
+                        </div>
+                        <div class="card-body">
+                            @{
+                                Random rand = new Random();
+                                string img = "recipe_" + rand.Next(1, 6).ToString() + ".jpg";
+                            }
+                            <img src="~/images/@img" class="img-responsive recipe-image mx-auto d-block" />
+                            <center>
+                                <p>@Model.RecipeDesc</p>
+                                <p><b>Chef Name : </b>@Model.ChefName</p>
+                                <p><b>Ingredient : </b>@Model.Ingredients</p>
+                                <p><b>Preparation Time: : </b>@Model.PrepTime</p>
+                            </center>
+                           
+                        </div>
+                        
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

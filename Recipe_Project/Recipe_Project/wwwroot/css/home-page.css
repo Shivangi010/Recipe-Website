@@ -1,0 +1,26 @@
+﻿.title-container {
+    height: 300px;
+    width: 1080px;
+    background: #ffffffab;
+    padding: 80px;
+}
+
+.title-text {
+    color: black;
+}
+
+.recipe-container {
+    background: #ffffffab;
+    width: 1080px;
+    margin-bottom: 50px;
+    padding-bottom: 25px;
+}
+
+.recipe-card {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.recipe-image {
+    height:350px;
+    width:350px;
+}

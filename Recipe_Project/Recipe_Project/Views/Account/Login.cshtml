@@ -1,0 +1,32 @@
+﻿@model LoginModel
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="panel panel-success">
+                <div class="panel-heading text-center"><h4>Recipe Details</h4></div>
+                <div class="panel-body">
+                    <br />
+                    <br />
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <form asp-action="Login" asp-controller="Account" method="post">
+                        <input type="hidden" asp-for="ReturnUrl" />
+                        <div class="form-group">
+                            <label asp-for="Username"></label>
+                            <div><span asp-validation-for="Username" class="text-danger"></span></div>
+                            <input asp-for="Username" placeholder="Enter Username" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password"></label>
+                            <div><span asp-validation-for="Password" class="text-danger"></span></div>
+                            <input asp-for="Password" placeholder="Enter Password" class="form-control" />
+                        </div>
+
+                        <button class="btn btn-primary" type="submit">Log In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

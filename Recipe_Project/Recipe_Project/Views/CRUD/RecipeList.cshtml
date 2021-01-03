@@ -1,0 +1,49 @@
+﻿@model IEnumerable<RecipeIngredientMapping>
+<!-- Using BasicLayout file for Header -->
+<!--<section id="contact">-->
+<br /><br /><br />
+<div class="container">
+    <div class="col-lg-8 mx-auto">
+
+        <h1 class="text-center">Recipe List !!!</h1>
+
+        <table class="table table-sm table-striped table-light table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th class="text-center">Recipe Name</th>
+                    <th class="text-center">Click the Link to Review the Recipe</th>
+                    <th class="text-center" colspan="2">Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Recipe_Project.Models.RecipeIngredientMapping r in Model)
+                {
+                    <!--Sending the recipe id to the controller -->
+                    <tr>
+                        <td class="text-center"><a asp-route-id="@r.RecipeId" asp-action="ViewRecipe">@r.RecipeName</a></td>
+                        <td class="text-center"><a asp-route-id="@r.RecipeId" asp-action="ReviewRecipe">Review Recipe</a></td>
+                        <td class="text-center">
+                            <a asp-action="AddRecipe" class="btn btn-sm btn-warning" asp-route-id="@r.RecipeId">
+                                Edit
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a asp-action="Delete" class="btn btn-danger btn-sm" asp-route-id="@r.RecipeId">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="text-center">
+            <a asp-controller="CRUD" asp-action="AddRecipe" class="btn-get-started scrollto">Create Recipe</a>
+        </div>
+    </div>
+</div>
+<script>
+@if (TempData["message"] != null)
+{
+    @Html.Raw(TempData["message"])
+}
+</script>

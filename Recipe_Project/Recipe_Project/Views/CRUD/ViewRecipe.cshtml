@@ -1,0 +1,14 @@
+﻿@model RecipeIngredientMapping
+<!-- Using BasicLayout file for Header -->
+<section id="contact">
+    <!--Calling the partial view created in the shared folder named as PartialViewRecipe -->
+    @await Html.PartialAsync("PartialViewRecipe", @Model)
+    <center>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a asp-action="AddRecipe" asp-controller="CRUD" class="btn-get-started scrollto" asp-route-id="@Model.RecipeId">
+                Update Recipe
+            </a>
+        }
+    </center>
+</section>

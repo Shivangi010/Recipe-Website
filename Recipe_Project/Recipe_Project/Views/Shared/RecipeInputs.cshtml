@@ -1,0 +1,33 @@
+﻿@model RecipeIngredientMapping
+<!-- Partial View for Recipe Labels and Inputs-->
+<div class="panel-body">
+
+   @* <div asp-validation-summary="All"></div>*@
+    <input type="hidden" asp-for="RecipeId" />
+    <div class="form-group">
+        <label asp-for="RecipeName">Recipe Name:</label>
+        <input class="form-control" asp-for="RecipeName" />
+        <span asp-validation-for="RecipeName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RecipeDesc">Recipe Description:</label>
+        <textarea class="form-control" asp-for="RecipeDesc"></textarea>
+        <span asp-validation-for="RecipeDesc" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ChefName">Chef Name:</label>
+        <input class="form-control" asp-for="ChefName" />
+        <span asp-validation-for="ChefName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Ingredients">Ingredients:</label>
+        <input class="form-control" asp-for="Ingredients" />
+        <span asp-validation-for="Ingredients" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PrepTime">Preparation Time:</label>
+        <input class="form-control" asp-for="PrepTime" placeholder="0.0" />
+        <span asp-validation-for="PrepTime" class="text-danger"></span>
+    </div>
+
+</div>

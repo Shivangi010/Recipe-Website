@@ -1,0 +1,45 @@
+﻿<!-- Using BasicLayout file for Header -->
+@model IEnumerable<RecipeIngredientMapping>
+<section id="hero">
+    <div class="hero-container">
+        <div class="title-container">
+            <h1 class="title-text">Welcome to Recipe King !!!</h1>
+            <h2 class="title-text">Get all the Finger-Licking Recipes at one place !!!</h2>
+
+        </div>
+        <div class="recipe-container">
+            <div class="row" style="margin-left: 30px">
+                @{ 
+                    int cimg = 1;
+                }
+                @foreach (Recipe_Project.Models.RecipeIngredientMapping r in Model)
+                {
+                    @if (cimg > 6)
+                    {
+                        cimg = 1;
+                    }
+                    string img = "recipe_" + (cimg++) + ".jpg";
+
+
+                    <div class="col-md-4 recipe-card">
+                        <div class="card" style="width: 18rem;">
+                            <img src="~/images/@img" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <div class="card-title row">
+                                    <div class="col-md-8" style="float:left">@r.RecipeName</div>
+                                    <div class="col-md-4" style="float:right"><i class="fa fa-clock-o" aria-hidden="true"></i><span class="ml-2">@r.PrepTime</span></div>
+                                </div>
+                                <div class="mt-2">
+                                    <p class="card-text">@r.RecipeDesc</p>
+                                    <p class="card-text"><b>Ingredient </b> @r.Ingredients</p>
+                                </div>
+                                <a asp-route-id="@r.RecipeId" asp-controller="Home" asp-action="ViewRecipe" class="mt-2 btn btn-primary">View Recipe</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+</section>

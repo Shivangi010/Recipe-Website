@@ -1,0 +1,6 @@
+﻿@model RecipeIngredientMapping
+<!-- Using BasicLayout file for Header -->
+<section id="contact">
+    <!--Calling the partial view created in the shared folder named as PartialViewRecipe -->
+    @await Html.PartialAsync("PartialViewRecipe", @Model)
+</section>

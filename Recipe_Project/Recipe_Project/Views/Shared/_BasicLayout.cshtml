@@ -1,0 +1,67 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <title>Recipe King</title>
+
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="~/css/scrolling-nav.css" rel="stylesheet">
+    <link href="~/css/home-page.css" rel="stylesheet">
+    <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/sweetalert/sweetalert.css" />
+    <script src="~/lib/sweetalert/sweetalert.js"></script>
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</head>
+
+<body id="hero" style="background-color:#73bab1">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background: #2d6760;">
+        <div class="container">
+            <img src="~/images/logo.png" alt="recipeKingLogo" class="logo-image img-fluid" />
+            <a class="ml-2 navbar-brand js-scroll-trigger" asp-controller="Home" asp-action="Index">  Recipe King</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" asp-controller="CRUD" asp-action="AddRecipe">Add Recipe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" asp-controller="CRUD" asp-action="RecipeList">Recipe List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" asp-controller="Account" asp-action="Logout">Log Out</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                         <a class="nav-link js-scroll-trigger" asp-controller="CRUD" asp-action="RecipeList">Log In</a>
+                        </li>
+                    }
+
+</ul>
+            </div>
+        </div>
+    </nav>
+    <div>
+
+        @RenderBody()
+    </div>
+</body>
+</html>
